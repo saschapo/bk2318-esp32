@@ -1,0 +1,6 @@
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 8359, rx 4, XOFF 2, XON 2
+[4550247 ms] RX 93 XOFF, paused, 0 byte(s) queued
+[4550257 ms] RX 91 XON, resumed
+[4569505 ms] RX 93 XOFF, paused, 0 byte(s) queued
+[4569515 ms] RX 91 XON, resumed

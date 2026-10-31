@@ -1,0 +1,13 @@
+>>> /hex 1B 4B
+>>> WIDE 1234567890
+>>> /hex 1B 4C
+>>> /hex 1B 48
+>>> INVERSE TEXT
+>>> /hex 1B 49
+>>> /hex 1B 26 3E
+>>> RIGHT
+>>> /hex 1B 26 3C
+>>> LEFT AGAIN
+>>> NORMAL 24 CHARS 12345678
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 8091, rx 2, XOFF 1, XON 1

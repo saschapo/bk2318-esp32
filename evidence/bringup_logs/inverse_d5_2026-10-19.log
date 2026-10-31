@@ -1,0 +1,5 @@
+>>> /hex 1B 48
+>>> INVERSE AT DENSITY 5
+>>> /hex 1B 49
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 8117, rx 2, XOFF 1, XON 1

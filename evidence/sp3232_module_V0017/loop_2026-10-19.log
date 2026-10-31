@@ -1,0 +1,8 @@
+>>> /status
+baud 1200, eol CRLF, running, queued 0, sent 0, rx 0, XOFF 0, XON 0
+>>> /loop
+loopback: sent "LOOPBACK 0123 ABC xyz", got "LOOPBACK 0123 ABC xyz" -> OK
+>>> /loop
+loopback: sent "LOOPBACK 0123 ABC xyz", got "LOOPBACK 0123 ABC xyz" -> OK
+>>> /status
+baud 1200, eol CRLF, running, queued 0, sent 42, rx 42, XOFF 0, XON 0

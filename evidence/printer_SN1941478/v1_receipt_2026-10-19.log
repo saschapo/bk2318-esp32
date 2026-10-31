@@ -1,0 +1,2 @@
+connected /dev/cu.usbmodem101 bk2318 1 24
+{'queued': '0', 'free': '4095', 'paused': '0', 'sent': '128', 'rx': '0', 'xoff': '0', 'xon': '0', 'resets': '0', 'wide': '0', 'inverse': '0', 'align': 'LEFT'}

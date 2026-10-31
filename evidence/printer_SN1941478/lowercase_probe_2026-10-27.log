@@ -1,0 +1,5 @@
+HELLO bk2318 2 24 glyphs=✓✗Ъ☐…→─ rule=SOLID,DOTS,DASH,DASHDOT job=6144 lead=2500
+EVT XOFF
+EVT XON
+job: lines=17 bytes=1419 eta=22 check=ok
+sent; the printer finishes by eta

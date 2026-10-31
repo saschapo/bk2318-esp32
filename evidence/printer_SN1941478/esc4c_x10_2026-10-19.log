@@ -1,0 +1,5 @@
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 0, rx 2, XOFF 0, XON 0
+>>> /hex 1B 4C 1B 4C 1B 4C 1B 4C 1B 4C 1B 4C 1B 4C 1B 4C 1B 4C 1B 4C 
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 20, rx 2, XOFF 0, XON 0

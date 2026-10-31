@@ -1,0 +1,7 @@
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 0, rx 0, XOFF 0, XON 0
+>>> /hex 1F
+[7395 ms] RX 93 XOFF, paused, 0 byte(s) queued
+[7406 ms] RX 91 XON, resumed
+>>> /status
+baud 1200, eol CRLF, tail 0, running, queued 0, sent 1, rx 2, XOFF 1, XON 1

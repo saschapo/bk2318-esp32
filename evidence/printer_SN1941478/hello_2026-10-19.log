@@ -1,0 +1,3 @@
+>>> /test
+>>> /status
+baud 1200, eol CRLF, running, queued 0, sent 54, rx 44, XOFF 0, XON 0

@@ -1,0 +1,25 @@
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK (2588 bytes)
+
+# 2026-10-20: tools/pdi_probe.py PORT run — 152 bytes glyphs (8 × ESC C) + 2436 bytes strip, all OK.
+# Adapter counters after the job: sent 575 → 3163 (= 2588), xoff/xon/resets unchanged (no XOFF, no reset).
+# Line legend: tools/pdi_probe.py docstring; hex per line: uv run tools/pdi_probe.py dry. Photo: pdi_probe_2026-10-20.jpg (second run).
+
+# 2026-10-20: the run above went to a POWERED-OFF printer (bytes lost, no error). Printer switched on (resets 4 → 5), run again:
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK (2588 bytes)
+sent=5751
+xoff=5
+resets=5

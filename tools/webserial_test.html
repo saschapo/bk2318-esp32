@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- Web Serial check for the bk2318 adapter: does port.open() from Chrome reset the C6?
+     Serve over localhost (Web Serial needs a secure context), open in Chrome:
+       python3 -m http.server 8000 --directory tools
+       http://localhost:8000/webserial_test.html
+     Connect sends HELLO right after open(). "EVT BOOT" in the log means the board rebooted. -->
+<meta charset="utf-8">
+<title>bk2318 Web Serial</title>
+<style>
+  body { font: 14px ui-monospace, monospace; margin: 16px; }
+  #log { white-space: pre-wrap; border: 1px solid #888; padding: 8px; min-height: 240px; }
+  input { width: 360px; font: inherit; }
+</style>
+<p>
+  <button id="connect">Connect + HELLO</button>
+  <button id="close" disabled>Close</button>
+  <input id="cmd" placeholder="command, e.g. ECHO Съёмка…" disabled>
+  <button id="send" disabled>Send</button>
+</p>
+<div id="log"></div>
+<script>
+const $ = id => document.getElementById(id);
+let port, reader, t0;
+const log = s => { $('log').textContent += `${((performance.now() - t0) / 1000).toFixed(3)}  ${s}\n`; };
+
+async function send(line) {
+  const w = port.writable.getWriter();
+  await w.write(new TextEncoder().encode(line + '\n'));
+  w.releaseLock();
+  log('> ' + line);
+}
+
+async function readLoop() {
+  const dec = new TextDecoder();
+  let buf = '';
+  reader = port.readable.getReader();
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let i;
+      while ((i = buf.indexOf('\n')) >= 0) { log('< ' + buf.slice(0, i).replace(/\r$/, '')); buf = buf.slice(i + 1); }
+    }
+  } catch (e) { log('read: ' + e); }
+  reader.releaseLock();
+}
+
+$('connect').onclick = async () => {
+  if (!('serial' in navigator)) { alert('No Web Serial: use Chrome over http://localhost'); return; }
+  port = await navigator.serial.requestPort();
+  t0 = performance.now();
+  $('log').textContent = '';
+  await port.open({ baudRate: 115200 });
+  log('open() done; signals: ' + JSON.stringify(await port.getSignals()));
+  readLoop();
+  await send('HELLO');
+  for (const id of ['close', 'cmd', 'send']) $(id).disabled = false;
+};
+$('send').onclick = () => send($('cmd').value);
+$('cmd').onkeydown = e => { if (e.key === 'Enter') send($('cmd').value); };
+$('close').onclick = async () => {
+  await reader.cancel();
+  await port.close();
+  log('closed');
+  for (const id of ['close', 'cmd', 'send']) $(id).disabled = true;
+};
+</script>
