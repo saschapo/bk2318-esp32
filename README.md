@@ -3,7 +3,7 @@
 Notes, firmware and probe scripts for driving a **Bruel & Kjaer Type 2318** graphics printer (a portable thermal printer from the late 1980s) with its **ZI 0054** serial interface module from a modern computer. The printer is not modified: a small external adapter plugs into its B&K-SI socket.
 
 ```
-computer --USB--> ESP32-C6 + SP3232 --RS-232, 1200 baud--> B&K-SI socket (LEMO 5-pin) --> 2318
+computer USB -> ESP32-C6 + SP3232 RS-232 -> LEMO 5-pin B&K 2318 printer
 ```
 
 <table>
